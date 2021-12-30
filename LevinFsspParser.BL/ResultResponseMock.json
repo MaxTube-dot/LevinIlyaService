@@ -1,0 +1,34 @@
+{
+  "status": "success",
+  "code": 0,
+  "exception": "",
+  "response": {
+    "status": 0,
+    "task_start": "2018-01-29 10:32:50",
+    "task_end": "2018-01-29 10:32:51",
+    "result": [
+      {
+        "status": 0,
+        "query": {
+          "type": 1,
+          "params": {
+            "firstname": "иванов",
+            "lastname": "иван",
+            "region": 74
+          }
+        },
+        "result": [
+          {
+            "name": "ИВАНОВ ИВАН ИВАНОВИЧ 05.11.1978",
+            "exe_production": "434/08/31/74 от 18.12.2008",
+            "details": "Исполнительный лист от 29.07.2005 № 2-551",
+            "subject": "",
+            "department": 74211,
+            "bailiff": "ИВАНОВ И. И. +7(351)723-62-55",
+            "ip_end": "2015-04-30, 46, 1, 4"
+          }
+        ]
+      }
+    ]
+  }
+}
