@@ -32,21 +32,14 @@ namespace LevinIlyaService.Controllers
         [HttpPost]
         public IEnumerable<IResult> SearchGroup(IGroup group)
         {
-
-
+            //Генерация случайной группы пользователей
             //IGroup group = new GroupModel();
-
             //for (int i = 0; i < 5; i++)
             //{
-
             //    group.AddPerson(GenerateRandomPerson());
-
-
             //}
 
-
             var results = _fssp.SearchGroup(group);
-
 
             return results;
         }
