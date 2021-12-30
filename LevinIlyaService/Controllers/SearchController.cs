@@ -26,25 +26,23 @@ namespace LevinIlyaService.Controllers
         {
             var enforcementProceedings = _fssp.SearchPerson( firstName,  lastName,  birthDate,  region,  secoundName);
 
-           // LevinFsspParser.BL.Models.
-
             return enforcementProceedings;
         }
 
         [HttpPost]
-        public IEnumerable<IResult> SearchGroup()
+        public IEnumerable<IResult> SearchGroup(IGroup group)
         {
 
 
-            IGroup group = new GroupModel();
+            //IGroup group = new GroupModel();
 
-            for (int i = 0; i < 5; i++)
-            {
+            //for (int i = 0; i < 5; i++)
+            //{
 
-                group.AddPerson(GenerateRandomPerson());
+            //    group.AddPerson(GenerateRandomPerson());
 
 
-            }
+            //}
 
 
             var results = _fssp.SearchGroup(group);
