@@ -6,6 +6,9 @@ using System.Threading;
 using System.Collections.Generic;
 using System;
 using System.Threading.Tasks;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
+using LevinIlya.WebService;
 
 namespace LevinIlyaService.Controllers
 {
@@ -13,7 +16,9 @@ namespace LevinIlyaService.Controllers
     [Route("[controller]")]
     public class SearchController : Controller
     {
-        FsspManager _fssp = new FsspManager("CyTa98qdpZKx");
+  
+
+        FsspManager _fssp = SD.fsspManager;
 
         private readonly ILogger<SearchController> _logger;
 

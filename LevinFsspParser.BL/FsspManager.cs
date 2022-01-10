@@ -8,8 +8,13 @@ using System.Threading.Tasks;
 
 namespace LevinFsspParser.BL
 {
-   public class FsspManager
+    public class FsspManager : IFsspManager
     {
+        /// <summary>
+        /// Ограничение кол-во запросов с стороны API
+        /// </summary>
+        public LimitRequest _limitRequest = new LimitRequest();
+
         /// <summary>
         /// Время ожидания ответа на запрос.
         /// </summary>
@@ -22,8 +27,7 @@ namespace LevinFsspParser.BL
         public int WaitMilliSecoundBeetwinRequest { get; set; } = 5000;
 
 
-
-        private  IWorkerWithAPI fsspManager;
+        private IWorkerWithAPI fsspManager;
 
         /// <summary>
         /// ТОкен доступа к API
@@ -44,8 +48,10 @@ namespace LevinFsspParser.BL
         /// <param name="region">Номер региона. https://api-ip.fssp.gov.ru/KOD_region.csv?v=2</param>
         /// <param name="secoundName">Отчество</param>
         /// <returns></returns>
-        public  IEnumerable<IEnforcementProceeding> SearchPerson(string firstName, string lastName, string birthDate, int region, string secoundName )
+        public IEnumerable<IEnforcementProceeding> SearchPerson(string firstName, string lastName, string birthDate, int region, string secoundName)
         {
+            _limitRequest.AddPhysicalRequest();
+
             IPerson person = new PhysicalPersonModel() { FirstName = firstName, SecondName = secoundName, LastName = lastName, BirthDate = birthDate, Region = region };
 
             ITask task = fsspManager.SearchPhysical(person);
@@ -55,9 +61,9 @@ namespace LevinFsspParser.BL
 
             var results = GetResults(task).ToArray();
 
-            
+
             enforcementProceedings.AddRange(results[0].EnforcementProceedings);
-            
+
 
             return enforcementProceedings.ToArray();
 
@@ -70,6 +76,9 @@ namespace LevinFsspParser.BL
         /// <returns> Содержит информацию о исполнительном производстве на запрашиваемых лиц.</returns>
         public IEnumerable<IResult> SearchGroup(IGroup group)
         {
+
+            _limitRequest.AddGroupRequest();
+
             ITask task = fsspManager.SearchGroup(group);
 
             var results = GetResults(task);
