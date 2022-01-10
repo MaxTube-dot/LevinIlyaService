@@ -44,7 +44,7 @@ namespace LevinFsspParser.BL
         /// <param name="region">Номер региона. https://api-ip.fssp.gov.ru/KOD_region.csv?v=2</param>
         /// <param name="secoundName">Отчество</param>
         /// <returns></returns>
-        public IEnumerable<IEnforcementProceeding> SearchPerson(string firstName, string lastName, string birthDate, int region, string secoundName )
+        public  IEnumerable<IEnforcementProceeding> SearchPerson(string firstName, string lastName, string birthDate, int region, string secoundName )
         {
             IPerson person = new PhysicalPersonModel() { FirstName = firstName, SecondName = secoundName, LastName = lastName, BirthDate = birthDate, Region = region };
 

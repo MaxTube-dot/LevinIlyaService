@@ -5,6 +5,7 @@ using LevinFsspParser.BL;
 using System.Threading;
 using System.Collections.Generic;
 using System;
+using System.Threading.Tasks;
 
 namespace LevinIlyaService.Controllers
 {
@@ -24,7 +25,7 @@ namespace LevinIlyaService.Controllers
         [HttpGet]
         public IEnumerable<IEnforcementProceeding> SearchPerson(string firstName, string lastName, string birthDate,int region , string secoundName = null)
         {
-            var enforcementProceedings = _fssp.SearchPerson( firstName,  lastName,  birthDate,  region,  secoundName);
+            var enforcementProceedings =  _fssp.SearchPerson( firstName,  lastName,  birthDate,  region,  secoundName);
 
             return enforcementProceedings;
         }

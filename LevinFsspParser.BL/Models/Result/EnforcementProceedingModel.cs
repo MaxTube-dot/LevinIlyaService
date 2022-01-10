@@ -19,7 +19,7 @@
         public string Subject { get; set; }
 
         [Newtonsoft.Json.JsonProperty("department")]
-        public int Department { get; set; }
+        public string Department { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bailiff")]
         public string Bailiff { get; set; }

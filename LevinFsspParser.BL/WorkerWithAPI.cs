@@ -135,8 +135,6 @@ namespace LevinFsspParser.BL
             DateTime taskStart = DateTime.Parse(respJson["response"]["task_start"].ToString());
             DateTime taskEnd = DateTime.Parse(respJson["response"]["task_end"].ToString());
 
-
-
             JArray resultArrayNode = (JArray)respJson["response"]["result"];
 
             var result = resultArrayNode.Select(node => new ResultModel()

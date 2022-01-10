@@ -6,7 +6,7 @@
     public interface IEnforcementProceeding
     {
         string Bailiff { get; set; }
-        int Department { get; set; }
+        string Department { get; set; }
         string Details { get; set; }
         string ExeProduction { get; set; }
         string IpEnd { get; set; }
